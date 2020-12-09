@@ -1,0 +1,20 @@
+{
+  "name": "queuemanager",
+  "version": "1.0.0",
+  "description": "this is a ta to student interface for labs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamesGrom/QueueManager.git"
+  },
+  "author": "James Grom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JamesGrom/QueueManager/issues"
+  },
+  "homepage": "https://github.com/JamesGrom/QueueManager#readme"
+}
