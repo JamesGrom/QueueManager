@@ -13,6 +13,9 @@
   },
   "author": "James Grom",
   "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
   "bugs": {
     "url": "https://github.com/JamesGrom/QueueManager/issues"
   },
