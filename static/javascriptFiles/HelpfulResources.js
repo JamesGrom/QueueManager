@@ -36,6 +36,23 @@ function handleResourceButtonClicked(){
         return;
     }
 
+    // //
+    // let temp = {
+    //     link: ResLink,
+    //     author: UserInfo.Name
+    // }
+
+    // fetch("http://.../createLink", {
+    //     {
+    //         method: "POST",
+    //         body: JSON.stringify(temp)
+    //     }
+    // })
+    // //
+
+
+
+
     //remove the error text if its there
     if(document.getElementById('ErrorText')){
         document.getElementById('ErrorText').remove();
