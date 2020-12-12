@@ -26,17 +26,18 @@ function handleResourceButtonClicked(){
     console.log(ResDescrip);
     */
 
-    let ResourceObject = {
+   /* let ResourceObject = {
         link: ResLink,
         description: ResDescrip,
         author: UserInfo.name
     }
+    */
 
-    fetch("http://..../createLink", {
+    /*fetch("http://..../createLink", {
         method: "POST",
         body: JSON.stringify(temp)
-    })
-    .then(
+    //})
+    //.then( */
         if(!ResLink || !ResDescrip){
             //add a little red text thing below button
             //both fields must be valid
@@ -74,7 +75,7 @@ function handleResourceButtonClicked(){
         
         
         //console.log(List);
-    );
+    //);
 }
 
 function main() {
@@ -86,4 +87,4 @@ main()
  git status
  git add filename
  git push
-*/
+ */
