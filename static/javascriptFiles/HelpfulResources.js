@@ -82,7 +82,7 @@ function main() {
     ResourceButton.addEventListener('click', () => { handleResourceButtonClicked() }); //we do this syntax because we don't want the stack function to use the event, we want it to take in specific arguments
 }
 main()
-
+//test comment
 /*
  git status
  git add filename
