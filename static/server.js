@@ -9,7 +9,13 @@ const path = require('path');
 const main = () => {
     const app = express();
     const port = 3000;
+
+    //define what filetypes our express app will be using
     app.use(express.json());
+    //make sure the static css filesheet can be used
+    app.use('/cssFiles',express.static(__dirname));
+    app.use('/javascriptFiles',express.static(__dirname));
+
     
     //define the root path
     app.get('/', (req,res) =>{
@@ -22,7 +28,7 @@ const main = () => {
     
  
     //test comment
-    
+
 }
 
 main();
