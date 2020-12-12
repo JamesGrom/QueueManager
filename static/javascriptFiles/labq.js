@@ -112,7 +112,7 @@ const sendNewQuestion = (text) => {
 };
 
 window.onload = () => {
-  fetch(`/api/questions`)
+  fetch('/api/questions')
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => {
       const listElement = document.querySelector("ul");
