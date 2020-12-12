@@ -29,6 +29,11 @@ const main = () => {
         ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
     })
 
+    app.get('/labq',(req,res)=>{
+        res.sendFile('./static/htmlFiles/labq.html',{root: path.join(__dirname,'')})
+        ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
+    })
+
     app.listen(port,() => {
         console.log(`queueManager server started on http://localhost: ${port}`);
     });
