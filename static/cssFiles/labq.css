@@ -1,0 +1,91 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Slabo 27px";
+}
+
+main {
+  max-width: 80ch;
+  padding: 2rem;
+  margin: auto;
+}
+
+main img {
+  height: 100%;
+}
+
+main header {
+  display: flex;
+  height: 4rem;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 2rem;;
+}
+
+h1,
+h2,
+h4 {
+  font-family: "Londrina Solid";
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+ul {
+  width: 100%;
+}
+
+li {
+  font-size: 1.2rem;
+  list-style-type: none;
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+li:first-child {
+    justify-content: center;
+}
+
+li input {
+    border-bottom: 1px solid #aaa;
+    padding: 0.5rem 1rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 85%;
+}
+
+.arrow-container {
+  display: inline-flex;
+  flex-direction: column;
+  margin-right: 1rem;
+}
+
+.arrow-container span {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.arrow-container button {
+  background: transparent;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.arrow-container button:hover {
+  background: #eee;
+}
+
+.arrow-container svg {
+  height: 24px;
+  width: 24px;
+}
