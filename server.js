@@ -13,7 +13,7 @@ const main = () => {
     //define what filetypes our express app will be using
     app.use(express.json());
     //make sure the static css filesheet can be used
-    app.use('/htmlFiles',express.static(__dirname));
+    app.use(express.static(path.join(__dirname,'static')));
     app.use('/cssFiles',express.static(__dirname));
     app.use('/javascriptFiles',express.static(__dirname));
 
