@@ -86,4 +86,8 @@ main()
  git status
  git add filename
  git push
+<<<<<<< HEAD
 */
+=======
+*/
+>>>>>>> 28b4cbc54e6b756a06927c496592ee096a0194ee

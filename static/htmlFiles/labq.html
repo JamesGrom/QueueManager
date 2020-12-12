@@ -1,0 +1,41 @@
+<html> 
+    <head> 
+        <title> Questions </title>
+        <href='https://fonts.googleapis.com/css?family=Adamina' rel='stylesheet'> 
+        <link rel='stylesheet' href='./labq.css'>
+        <script async src='.labq.js'></script>
+    </head>
+    <body>
+        <main>
+            <!---- what page is our hoe
+                <a href='.html'>Home</a> >
+            -->
+            <header>
+                <h1> Got a Question? </h1>
+            </header>
+            <ul>
+                <li>
+                    <input placeholder='Ask your question here and then press the return key'></input> 
+                </li>
+            </ul>
+        </main>
+        <template id='question'>
+            <li> 
+                <div class='arrow-container'>
+                    <button id='up-arrow-button'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+                        </svg>
+                    </button>
+                    <span id='votes'></span>
+                    <button id='down-arrow-button'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
+                <span id='question'>
+                </span>
+            </li>
+    </body>
+</html>
