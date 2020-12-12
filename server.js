@@ -13,14 +13,21 @@ const main = () => {
     //define what filetypes our express app will be using
     app.use(express.json());
     //make sure the static css filesheet can be used
+    app.use('/htmlFiles',express.static(__dirname));
     app.use('/cssFiles',express.static(__dirname));
     app.use('/javascriptFiles',express.static(__dirname));
 
     
     //define the root path
     app.get('/', (req,res) =>{
-        res.sendFile('./htmlFiles/index.html',{root: path.join(__dirname,'')})
+        console.log(__dirname);
+        res.sendFile('./static/htmlFiles/index.html',{root: path.join(__dirname,'')})
     });
+
+    app.get('/HelpfulResources',(req,res)=>{
+        res.sendFile('./static/htmlFiles/HelpfulResources.html',{root: path.join(__dirname,'')})
+        ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
+    })
 
     app.listen(port,() => {
         console.log(`queueManager server started on http://localhost: ${port}`);
