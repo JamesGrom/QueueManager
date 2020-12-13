@@ -86,12 +86,6 @@ const main = () => {
     
     //define the endpoints for the resource links
     app.get('/api/resources/:labName',(req,res)=>{
-        //handle body being improperly formatted json
-        // if(typeof req.body !== 'object' || req.body === null ){
-        //     res.status(400).send("improperly formatted body, we require json");
-        //     return;
-        // }
-        // let returnArray = 
         console.log("inside get resources submit");
         //console.log(req.body);
         let labString = Object.values(req.params)[0];
@@ -115,19 +109,6 @@ const main = () => {
             console.log(err);
         });
     })
-
-    db.collection('labs/coen161/resources')
-        .get()
-            .then(querySnapshot => {
-                querySnapshot.forEach(doc => {
-                console.log(doc.data());
-            })
-    }).catch(err => {
-        console.log(err);
-    });
-
-    // app.get('/api/resources'){
-    // }
 
     app.listen(port,() => {
         console.log(`queueManager server started on http://localhost: ${port}`);
