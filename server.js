@@ -88,6 +88,29 @@ const main = () => {
     })
 
 
+    //get endpoint for question links
+    app.get('/api/questions/:labName',(req,res)=>{
+        console.log('inside get questions endpoint');
+        let labString = Object.values(req.params)[0];
+        console.log(labString);
+        db.collection(`labs/${labString}/questions`)
+            .get()
+            .then(querySnapshot => {
+                const promises = [];
+                querySnapshot.forEach(doc => {
+                console.log(doc.data());
+                promises.push(doc.data());
+                });
+                return Promise.all(promises);
+        }).then(collectedReferences => {
+            console.log(collectedReferences + '<-- returning value')
+            res.status(200).send(collectedReferences);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+
+    })
 
     //get endpoint fot the resource links 
     //precondition, labName is the string that defines the name of the lab section
@@ -140,7 +163,6 @@ const main = () => {
         }).catch(err => {
             console.log(err);
         })
-
     })
 
 

@@ -170,11 +170,10 @@ function getLabName(){
 
 window.onload = () =>{ //this function will display all questions from a particular lab
   let LabNum = getLabNum();
-
-  if(LabNum === "") return; //no fetching
-
+  let labName = getLabName();
+  //if(LabNum === "") return; //no fetching
   //let fetchUrl = 
-  fetch("http://localhost:3000/api/questions") //FIX THIS LINE
+  fetch(`http://localhost:3000/api/questions/${labName}`) //FIX THIS LINE
   .then((response) => (response.ok ? response.json() : Promise.reject()))
   .then((data) => { //for loop that bitcha dn display the questions underneath
       console.log(data);
