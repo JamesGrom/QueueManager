@@ -80,7 +80,9 @@ window.onload = () => { //go through any and all resource links already uploaded
     fetch("http://localhost:3000/api/resources/coen161")
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => { //fill the page with the resource links to the right lab, all resources for lab 1 fall under lab 1 (1==LabNum, id=1)
-        console.log(data); //will return an array
+        for(let i=0; data[i]; i++){
+            addResourceLink(data[i].link, data[i].description);
+        }
     })
 };
 
