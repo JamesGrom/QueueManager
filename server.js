@@ -83,7 +83,7 @@ const main = () => {
         ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
     })
 
-    app.get('/allq', (req,rest)=>{
+    app.get('/allq', (req,res)=>{
         res.sendFile("./static/htmlFiles/AllQuestions.html",{root: path.join(__dirname,'')})
     })
 
