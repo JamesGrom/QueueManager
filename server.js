@@ -33,6 +33,12 @@ const main = () => {
     app.get('/register',(req,res)=>{
         res.sendFile('./static/htmlFiles/register.html');
     })
+    
+    //serve the user home page
+    app.get('./home', (req,res)=>{
+        res.sendFile('./static/htmlFiles/home.html');
+    })
+    
     //serve the create lab section page
     app.get('/create', (req,res)=>{
         res.sendFile('./static/htmlFiles/createLab.html');
