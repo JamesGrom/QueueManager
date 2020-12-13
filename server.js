@@ -15,7 +15,7 @@ admin.initializeApp({
 const db = admin.firestore();
 
 const tempdocRef = db.collection('testing');
-db.doc('tested/doc').set({here: "7"});
+db.doc('tested/doc').set({here: "8"});
 // 
 //main function
 const main = () => {
@@ -72,8 +72,6 @@ const main = () => {
         res.sendFile('./static/htmlFiles/lab.html');
     })
 
-
-
     app.get('/HelpfulResources',(req,res)=>{
         res.sendFile('./static/htmlFiles/HelpfulResources.html',{root: path.join(__dirname,'')})
         ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
@@ -85,10 +83,18 @@ const main = () => {
         ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
     })
 
+    
+
+    // app.get('/api/resources'){
+    // }
+
     app.listen(port,() => {
         console.log(`queueManager server started on http://localhost: ${port}`);
     });
     
+
+    
+
 }
 
 main();
