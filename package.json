@@ -14,7 +14,9 @@
   "author": "James Grom",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "firebase": "^8.2.0",
+    "firebase-admin": "^9.4.2"
   },
   "bugs": {
     "url": "https://github.com/JamesGrom/QueueManager/issues"
