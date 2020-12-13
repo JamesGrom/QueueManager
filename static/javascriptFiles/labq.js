@@ -127,6 +127,8 @@ function question(LabQ){
 	
 }
 
+var urlParams = new URLSearchParams(window.location.search);
+
 //button function, checks user's input, adds to database, and adds to page
 function handleQuestionButtonClick(){
   const LabQ = document.getElementById('labQs').value;   
