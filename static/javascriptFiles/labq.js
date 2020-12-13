@@ -165,7 +165,7 @@ function getLabNum(){
 
 //temporary implementation
 function getLabName(){
-  return "coen161";
+  return localStorage.getItem('activeLabName');
 }
 
 window.onload = () =>{ //this function will display all questions from a particular lab

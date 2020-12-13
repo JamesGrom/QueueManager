@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->   
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script defer src ="../javascriptFiles/index.js"></script>
+
     <link rel="stylesheet" type="text/css" href="./cssFiles/index.css"></link>
     <meta charset="UTF-8">
 
     <link rel="stylesheet" type="text/css" href="../cssFiles/index.css"></link>
 
-    <script defer src ="../javascriptFiles/index.js"></script>
+    
 </head>
 
 <body>
     <h1> Santa Clara Lab Manager </h1>
     <div id="centerdiv"> 
+        <div id="subDiv">
+            <h1 style="margin-top: 3%;"> Create Account </h1>
+            <label for="emailField"> Email*:</label>
+            <input type="text" id="emailField" name="emailField" value=""> 
+            <label for="passwordField">Password*:</label>
+            <input type="text" id="passwordField" name="passwordField" value="">
+        </div>
+        <div id="buttonDiv">
         <button id="loginButton"> Login </button>
         <button id="registerButton"> Register </button>
-
+        </div>
 
     </div>
 
     <a href="./HelpfulResources"> Upload Resource Here</a> <!-- how to link between pages, make sure it alligns with the server file-->
+
+
 </body>
 
 </html>
