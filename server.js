@@ -87,7 +87,8 @@ const main = () => {
         res.sendFile("./static/htmlFiles/AllQuestions.html",{root: path.join(__dirname,'')})
     })
 
-    
+
+
     //get endpoint fot the resource links 
     //precondition, labName is the string that defines the name of the lab section
     //postcondition, the http response returns an array of resource objects
@@ -116,6 +117,33 @@ const main = () => {
         });
     })
 
+
+    //post endpoint for new questions
+    app.post('/api/questions/:labName',(req,res)=>{
+        console.log('entered question post endpoint ') 
+        console.log(req.body);
+        //handle body being improperly formatted json
+        if(typeof req.body !== 'object' || req.body === null ){
+            res.status(400).send("improperly formatted body, we require json");
+            return;
+        }
+        let objToAdd = req.body;
+        console.log("adding the following object: " );
+        console.log( objToAdd);
+
+        db.collection(`labs/${objToAdd.labName}/questions`).add({
+            question: objToAdd.question,
+            labName: objToAdd.labName,
+            labNum:objToAdd.labNum
+        }).then(Resp => {
+            console.log(Resp);
+        }).catch(err => {
+            console.log(err);
+        })
+
+    })
+
+
     app.post('/api/resources',(req,res)=>{
         console.log('inside post resource link');
         //handle body being improperly formatted json
@@ -133,6 +161,7 @@ const main = () => {
             labName:objToAdd.labName
         }).then(Resp => {
             console.log(Resp);
+            res.status(200).send('resource successfully submitted');
         }).catch(err => {
             console.log(err);
         })

@@ -13,7 +13,7 @@ body {
 }
 #centerdiv {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 70%;
     height: 50px;
     align-content: center;
