@@ -65,6 +65,7 @@ const sendNewQuestion = (text) => {
     method: "POST",
     body: JSON.stringify({
       question: text,
+      labNumber: text,
     }),
   })
     .catch(() => {
