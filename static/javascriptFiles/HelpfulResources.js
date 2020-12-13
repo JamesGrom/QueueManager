@@ -73,10 +73,7 @@ window.onload = () => { //go through any and all resource links already uploaded
     let temp = {
         labName: "coen161"
     }
-    fetch("http://localhost:3000/api/coen161/resources",{
-        method: "GET",
-        body: JSON.stringify(temp)
-    })
+    fetch("http://localhost:3000/api/resources/coen161")
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => { //fill the page with the resource links to the right lab, all resources for lab 1 fall under lab 1 (1==LabNum, id=1)
         console.log(data); //will return an array
