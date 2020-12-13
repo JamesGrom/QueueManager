@@ -36,8 +36,9 @@ function addResourceLink(ResLInk, ResDescrip){ //focuses solely on adding a reso
 function handleResourceButtonClicked(){ //either make a new Resource Link or produces an error text
     const ResDescrip = document.getElementById('ResDescrip').value;
     const ResLink = document.getElementById('ResLink').value;   
+    const LabNum = document.getElementById('LabNum').value;
 
-    if(!ResLink || !ResDescrip){ //if either of the textboxes are blank, showcase the error text and do nothing else
+    if(!ResLink || !ResDescrip || !LabNum){ //if either of the textboxes are blank, showcase the error text and do nothing else
         ErrorText();
         return;
     }
@@ -45,7 +46,9 @@ function handleResourceButtonClicked(){ //either make a new Resource Link or pro
    let ResourceObject = { //upload this object into the Resource Link database
         link: ResLink,
         description: ResDescrip,
+        labNum: LabNum, //figure this part out
     }
+
     fetch("/api/resources", {
         method: "POST",
         body: JSON.stringify(ResourceObject)
@@ -54,7 +57,7 @@ function handleResourceButtonClicked(){ //either make a new Resource Link or pro
 }
 
 window.onload = () => { //go through any and all resource links already uploaded in the past, display them using addResourceLink
-    fetch("http://localhost:3000/api/Resources")
+    fetch("http://localhost:3000/api/resources")
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => {
         console.log(data);
