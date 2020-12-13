@@ -140,7 +140,7 @@ function handleQuestionButtonClicked(){
     labNum: LabNum,
   }
   
-  fetch(`/api/questions/${labName}`, {
+  fetch(`/api/questions/${LabName}`, {
     headers:{
       'Accept': 'application/json',
       'content-type': 'application/json'
