@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->   
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script defer src ="../javascriptFiles/home.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./cssFiles/home.css"></link>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../cssFiles/home.css"></link>
+</head>
+
+<body>
+    <h1>My HomePage</h1>
+    <div id="navBar">
+        <button id="createLabButton"> Create A lab Section</button>
+        <button id="searchLabButton">Find A lab Section</button>
+        <button id="signoutButton">signOut</button>
+    </div>
+    <header id="labSectionHeader"> My Lab Sections: </header>
+    <div id="centralDiv">
+        <ul id="visibleList">
+            <li> The Following are your enrolled lab sections </li>
+        </ul>
+    </div>
+    
+</body>
+
+</html>

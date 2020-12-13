@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->   
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.0/firebase-auth.js"></script>
+    <script defer src ="../javascriptFiles/joinLab.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./cssFiles/joinLab.css"></link>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="../cssFiles/joinLab.css"></link>
+
+    
+</head>
+
+<body>
+    <h1>Join A new Lab Section</h1>
+    <div id="centerdiv"> 
+        <div id="subDiv">
+            <h1 style="margin-top: 3%;"> Enter Lab Section info </h1>
+            <label for="labNameField"> Lab Name*:</label>
+            <input type="text" id="labNameField" name="labNameField" value=""> 
+            <label for="passwordField">Optional Password*:</label>
+            <input type="text" id="passwordField" name="passwordField" value="">
+        </div>
+        <div id="buttonDiv">
+        <button id="submitButton"> Join This Lab </button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
