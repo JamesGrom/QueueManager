@@ -137,7 +137,7 @@ function handleQuestionButtonClicked(){
   let LabNum = getLabNum();
   let LabName = getLabName();
   let QuestionObject = {
-    question: LabQs,
+    question: labQs,
     labName: LabName,
     labNum: LabNum,
   }
