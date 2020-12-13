@@ -1,4 +1,4 @@
-const mainElement = document.getElementsByTagName("main")[0];
+/*const mainElement = document.getElementsByTagName("main")[0];
 const inputElement = document.querySelector("input");
 
 const LOCAL_STORAGE_KEY = "queued_questions";
@@ -22,6 +22,7 @@ const vote = (clone, url) => {
     });
 };
 
+
 const sendQueuedQueries = () => {
   const previouslyQueuedQuestions = localStorage.getItem(LOCAL_STORAGE_KEY);
   if (previouslyQueuedQuestions) {
@@ -34,7 +35,7 @@ const sendQueuedQueries = () => {
   }
 };
 
-const convertQuestionToElement = (question) => {
+/*const convertQuestionToElement = (question) => {
   const template = document.getElementById("question-template");
   const clone = template.content.firstElementChild.cloneNode(true);
   const votesElement = clone.querySelector("#votes");
@@ -54,6 +55,7 @@ const convertQuestionToElement = (question) => {
 
   return clone;
 };
+
 
 const sendNewQuestion = (text) => {
   let shouldSendQueuedQueries = true;
@@ -113,7 +115,7 @@ const sendNewQuestion = (text) => {
 };
 
 window.onload = () => {
-  fetch('/api/questions')
+    fetch("http://localhost:3000/api/questions")
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => {
       const listElement = document.querySelector("ul");
@@ -130,3 +132,49 @@ window.onload = () => {
     }
   });
 };
+
+*/
+const QuestionButton = document.getElementById('QuestionButton');
+
+//function that puts question into the page
+function question(LabNum, LabQ){
+
+  const QuestionsList = document.getElementById('LabQuestions');
+  let LabQuestion = document.createElement('listItem');
+  let LabNumber = document.createElementt('n');
+  
+	QuestionsList.appendChild(LabQuestion);
+	
+}
+
+//button function, checks user's input, adds to database, and adds to page
+function handleQuestionButtonClick(){
+	const LabNum = document.getElementById('labNum').value;
+  const LabQ = document.getElementById('labQs').value;   
+  
+  if(!LabNum || !
+  
+  let QuestionObject = {
+  	question: LabQ,
+    labNum: LabNum,
+  };
+  
+  fetch("/api/questions", {
+        method: "POST",
+        body: JSON.stringify(QuestionObject)
+    })
+    .then(question(LabNum, LabQ)); 
+}
+
+window.onload = () =>{ //this function will display all questions from a particular lab
+		fetch("http://localhost:3000/api/questions")
+  	.then((response) => (response.ok > respsonse.json() :Promise.reject()))
+  	.then((data) => {
+    	console.log(data);
+  	})
+};  
+
+function main() {//eventhandler for the button
+	QuestionButton.addEventListener('click', () => {handleQuestionButtonClick() } );
+}
+main ()
