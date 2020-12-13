@@ -61,10 +61,7 @@ window.onload = () => { //go through any and all resource links already uploaded
         labName: "coen161",
         labNum: "4"
     }
-    fetch("http://localhost:3000/api/resources",{
-        method: "GET",
-        body: JSON.stringify(tempObj)
-    })
+    fetch("http://localhost:3000/api/resources/coen161")
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => {
         console.log(data);
