@@ -84,7 +84,9 @@ const main = () => {
     })
 
     
-    //define the endpoints for the resource links
+    //get endpoint fot the resource links 
+    //precondition, labName is the string that defines the name of the lab section
+    //postcondition, the http response returns an array of resource objects
     app.get('/api/resources/:labName',(req,res)=>{
         console.log("inside get resources submit");
         //console.log(req.body);
@@ -109,6 +111,31 @@ const main = () => {
             console.log(err);
         });
     })
+
+    app.post('/api/resources',(req,res)=>{
+        console.log('inside post resource link');
+        //handle body being improperly formatted json
+        if(typeof req.body !== 'object' || req.body === null ){
+            res.status(400).send("improperly formatted body, we require json");
+            return;
+        }
+        let objToAdd = req.body;
+        console.log("adding the following object: " );
+        console.log( objToAdd);
+
+        let dbRef = db.collection(`labs/${objToAdd.labName}/resources`).add({
+            link: objToAdd.link,
+            description: objToAdd.description,
+            labName:objToAdd.labName
+        }).then(Resp => {
+            console.log(Resp);
+        }).catch(err => {
+            console.log(err);
+        })
+
+        
+    })
+
 
     app.listen(port,() => {
         console.log(`queueManager server started on http://localhost: ${port}`);
