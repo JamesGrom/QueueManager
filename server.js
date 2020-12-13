@@ -4,7 +4,7 @@ console.log("server.js started running");
 const express = require('express');
 const fs = require('fs/promises');
 const path = require('path');
-
+// 
 //main function
 const main = () => {
     const app = express();
@@ -13,7 +13,7 @@ const main = () => {
     //define what filetypes our express app will be using
     app.use(express.json());
     //make sure the static css filesheet can be used
-    app.use('/htmlFiles',express.static(__dirname));
+    app.use(express.static(path.join(__dirname,'static')));
     app.use('/cssFiles',express.static(__dirname));
     app.use('/javascriptFiles',express.static(__dirname));
 
@@ -31,8 +31,9 @@ const main = () => {
 
     app.get('/labq',(req,res)=>{
         res.sendFile('./static/htmlFiles/labq.html',{root: path.join(__dirname,'')})
+        ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
     })
-    
+
     app.listen(port,() => {
         console.log(`queueManager server started on http://localhost: ${port}`);
     });
