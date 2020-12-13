@@ -152,12 +152,10 @@ function handleQuestionButtonClick(){
 	const LabNum = document.getElementById('labNum').value;
   const LabQ = document.getElementById('labQs').value;   
   
-  if(!LabNum || !
-  
   let QuestionObject = {
   	question: LabQ,
     labNum: LabNum,
-  };
+  }
   
   fetch("/api/questions", {
         method: "POST",
@@ -168,10 +166,10 @@ function handleQuestionButtonClick(){
 
 window.onload = () =>{ //this function will display all questions from a particular lab
 		fetch("http://localhost:3000/api/questions")
-  	.then((response) => (response.ok > respsonse.json() :Promise.reject()))
-  	.then((data) => {
-    	console.log(data);
-  	})
+  	.then((response) => (response.ok ? response.json() : Promise.reject()))
+    .then((data) => {
+        console.log(data);
+    })
 };  
 
 function main() {//eventhandler for the button
