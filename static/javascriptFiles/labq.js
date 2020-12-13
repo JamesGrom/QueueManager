@@ -117,13 +117,15 @@ window.onload = () => {
 const QuestionButton = document.getElementById('QuestionButton');
 
 //function that puts question into the page
-function question(LabQs){
 
-  const labQs = document.getElementById('labQs');
+function question(labQs){
+
+  const List = document.getElementById('labList');
   let LabQuestion = document.createElement('li');
-  
-  labQs.appendChild(LabQuestion);
+ 
   LabQuestion.innerText= labQs;
+  List.appendChild(LabQuestion);
+ // LabQuestion.innerText= labQs;
 	
 }
 
@@ -131,11 +133,11 @@ var urlParams = new URLSearchParams(window.location.search);
 
 //button function, checks user's input, adds to database, and adds to page
 function handleQuestionButtonClicked(){
-  const LabQs = document.getElementById('labQs').value;   
+  const labQs = document.getElementById('labQs').value;   
   let LabNum = getLabNum();
 
   let QuestionObject = {
-  	question: LabQs,
+  	question: labQs,
     labNum: LabNum,
   }
   
@@ -143,7 +145,7 @@ function handleQuestionButtonClicked(){
         method: "POST",
         body: JSON.stringify(QuestionObject)
     })
-    .then(question(LabQs)); 
+    .then(question(labQs)); 
 }
 
 function getLabNum(){
