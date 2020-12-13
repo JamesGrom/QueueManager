@@ -6,7 +6,14 @@
 #TopSection{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    border: 5px solid red;
+    background-color: beige;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 40%;
+    margin-right: 40%;
+    position: relative;
 }
 
 #PageTitle{
