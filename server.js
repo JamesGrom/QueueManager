@@ -84,9 +84,31 @@ const main = () => {
     })
 
     
-
-    // app.get('/api/resources'){
-    // }
+    //define the endpoints for the resource links
+    app.get('/api/resources/:labName',(req,res)=>{
+        console.log("inside get resources submit");
+        //console.log(req.body);
+        let labString = Object.values(req.params)[0];
+        //precondition queiries all resources for the lab with the given Name
+        //let labString = req.body.labName;
+        console.log(labString);
+        const result = db.collection(`labs/${labString}/resources`)
+            .get()
+            .then(querySnapshot => {
+                const promises = [];
+                querySnapshot.forEach(doc => {
+                console.log(doc.data());
+                promises.push(doc.data());
+                });
+                return Promise.all(promises);
+        }).then(collectedReferences => {
+            console.log(collectedReferences + '<-- returning value')
+            res.status(200).send(collectedReferences);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    })
 
     app.listen(port,() => {
         console.log(`queueManager server started on http://localhost: ${port}`);
