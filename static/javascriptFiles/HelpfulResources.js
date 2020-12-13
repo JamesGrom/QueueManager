@@ -57,17 +57,29 @@ function handleResourceButtonClicked(){ //either make a new Resource Link or pro
 }
 
 window.onload = () => { //go through any and all resource links already uploaded in the past, display them using addResourceLink
-    let tempObj={
-        labName: "coen161",
-        labNum: "4"
+    //have like a table of contents, each header has Lab X, underneath it are links corresponding to that lab
+    /*ResourceLinks = document.getElementById("ResourceLinks");
+    for(let i=1; i<=10; i++){
+        let LabHeader = document.createElement("h2");
+        let LabLinks = document.createElement("ul");
+
+        LabHeader.innerText = "Lab " + i; //h2 now has text "Lab 1"
+        LabLinks.setAttribute("id", i); //Lab 1 set of ul will have id "1"
+
+        LabHeader.appendChild(LabLinks);
+        ResourceLinks.appendChild(LabHeader);
+    }*/
+   
+    let temp = {
+        labName: "coen161"
     }
-    fetch("http://localhost:3000/api/resources",{
+    fetch("http://localhost:3000/api/coen161/resources",{
         method: "GET",
-        body: JSON.stringify(tempObj)
+        body: JSON.stringify(temp)
     })
     .then((response) => (response.ok ? response.json() : Promise.reject()))
-    .then((data) => {
-        console.log(data);
+    .then((data) => { //fill the page with the resource links to the right lab, all resources for lab 1 fall under lab 1 (1==LabNum, id=1)
+        console.log(data); //will return an array
     })
 };
 
