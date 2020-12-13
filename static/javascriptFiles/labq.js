@@ -177,6 +177,8 @@ window.onload = () =>{ //this function will display all questions from a particu
   .then((response) => (response.ok ? response.json() : Promise.reject()))
   .then((data) => { //for loop that bitcha dn display the questions underneath
       console.log(data);
+      for(let i=0; data[i]; i++)
+        question(data[i].question);
   })
 };  
 
