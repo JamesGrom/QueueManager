@@ -9,18 +9,24 @@
     </head>
     <body>
         <main>
-            <!---- what page is our hoe
-                <a href='.html'>Home</a> >
-            -->
+            <a href='./'>Home</a> >
             <header>
                 <h1> Got a Question? </h1>
             </header>
             <ul>
                 <li>
-                    <input placeholder='Ask your question here and then press the return key'></input> 
+                    
+                    <label for="labNum"> Lab Number:</label>
+                    <input type="text" id="labNum" name="labNum" value="">
+                    <label for="labQs" >Lab Question</label>
+                    <input type="text" id="labQs" name="labQs" value="">
+                    <div id="ButtonPlacement"> 
+                        <button id='ResourceButton'> Upload Question </button> 
+                    </div>
                 </li>
             </ul>
         </main>
+        
         <template id='question'>
             <li> 
                 <div class='arrow-container'>

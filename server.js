@@ -4,7 +4,7 @@ console.log("server.js started running");
 const express = require('express');
 const fs = require('fs/promises');
 const path = require('path');
-
+// 
 //main function
 const main = () => {
     const app = express();
@@ -26,12 +26,13 @@ const main = () => {
 
     //serve the login page
     app.get('/login', (req,res) => {
-        res.sendFile('./static/htmlFiles/login.html');
+        res.sendFile('./static/htmlFiles/login.html',{root: path.join(__dirname,'')});
+        console.log("login page queried");
     })
 
     //serve the register page
     app.get('/register',(req,res)=>{
-        res.sendFile('./static/htmlFiles/register.html');
+        res.sendFile('./static/htmlFiles/register.html', {root: path.join(__dirname,'')});
     })
     
     //serve the user home page
@@ -58,7 +59,9 @@ const main = () => {
     app.get('/lab', (req,res)=>{
         res.sendFile('./static/htmlFiles/lab.html');
     })
-    
+
+
+
     app.get('/HelpfulResources',(req,res)=>{
         res.sendFile('./static/htmlFiles/HelpfulResources.html',{root: path.join(__dirname,'')})
         ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
