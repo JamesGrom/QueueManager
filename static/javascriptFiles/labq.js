@@ -117,25 +117,25 @@ window.onload = () => {
 const QuestionButton = document.getElementById('QuestionButton');
 
 //function that puts question into the page
-function question(LabQ){
+function question(LabQs){
 
-  const QuestionsList = document.getElementById('LabQuestions');
-  let LabQuestion = document.createElement('listItem');
-  let LabNumber = document.createElementt('n');
+  const labQs = document.getElementById('labQs');
+  let LabQuestion = document.createElement('li');
   
-	QuestionsList.appendChild(LabQuestion);
+  labQs.appendChild(LabQuestion);
+  LabQuestion.innerText= labQs;
 	
 }
 
 var urlParams = new URLSearchParams(window.location.search);
 
 //button function, checks user's input, adds to database, and adds to page
-function handleQuestionButtonClick(){
-  const LabQ = document.getElementById('labQs').value;   
+function handleQuestionButtonClicked(){
+  const LabQs = document.getElementById('labQs').value;   
   let LabNum = getLabNum();
 
   let QuestionObject = {
-  	question: LabQ,
+  	question: LabQs,
     labNum: LabNum,
   }
   
@@ -143,7 +143,7 @@ function handleQuestionButtonClick(){
         method: "POST",
         body: JSON.stringify(QuestionObject)
     })
-    .then(question(LabNum, LabQ)); 
+    .then(question(LabQs)); 
 }
 
 function getLabNum(){
@@ -170,6 +170,6 @@ window.onload = () =>{ //this function will display all questions from a particu
 };  
 
 function main() {//eventhandler for the button
-	QuestionButton.addEventListener('click', () => {handleQuestionButtonClick() } );
+	QuestionButton.addEventListener('click', () => { handleQuestionButtonClicked() });
 }
 main ()
