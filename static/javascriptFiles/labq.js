@@ -1,8 +1,6 @@
 /*const mainElement = document.getElementsByTagName("main")[0];
 const inputElement = document.querySelector("input");
-
 const LOCAL_STORAGE_KEY = "queued_questions";
-
 const failAllGet = (err) => {
   console.log(err);
   const errorElement = document.createElement("section");
@@ -11,18 +9,14 @@ const failAllGet = (err) => {
     "Couldn't fetch anything, is the server up and running?";
   mainElement.appendChild(errorElement);
 };
-
 const vote = (clone, url) => {
   const votesElement = clone.querySelector("#votes");
-
   fetch(url, { method: "PUT" })
     .then((response) => (response.ok ? response.json() : Promise.resolve()))
     .then((update) => {
       votesElement.textContent = update.upvotes - update.downvotes;
     });
 };
-
-
 const sendQueuedQueries = () => {
   const previouslyQueuedQuestions = localStorage.getItem(LOCAL_STORAGE_KEY);
   if (previouslyQueuedQuestions) {
@@ -34,12 +28,10 @@ const sendQueuedQueries = () => {
     );
   }
 };
-
 /*const convertQuestionToElement = (question) => {
   const template = document.getElementById("question-template");
   const clone = template.content.firstElementChild.cloneNode(true);
   const votesElement = clone.querySelector("#votes");
-
   clone
     .querySelector("#up-arrow-button")
     .addEventListener("click", () => vote(clone, `/api/${question.id}/upvote`));
@@ -48,20 +40,15 @@ const sendQueuedQueries = () => {
     .addEventListener("click", () =>
       vote(clone, `/api/${question.id}/downvote`)
     );
-
   votesElement.innerText =
     parseInt(question.upvotes, 10) - parseInt(question.downvotes, 10);
   clone.querySelector("#question").textContent = question.text;
-
   return clone;
 };
-
-
 const sendNewQuestion = (text) => {
   let shouldSendQueuedQueries = true;
   const headers = new Headers();
   headers.set("content-type", "application/json");
-
   fetch("/api/question", {
     headers,
     method: "POST",
@@ -73,7 +60,6 @@ const sendNewQuestion = (text) => {
     .catch(() => {
       inputElement.classList.add("error");
       let previouslyQueuedQuestions = localStorage.getItem(LOCAL_STORAGE_KEY);
-
       if (previouslyQueuedQuestions) {
         const newQuestions = JSON.stringify([
           ...JSON.parse(previouslyQueuedQuestions),
@@ -83,9 +69,7 @@ const sendNewQuestion = (text) => {
       } else {
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify([text]));
       }
-
       shouldSendQueuedQueries = false;
-
       return {
         ok: true,
         json: () => ({
@@ -102,7 +86,6 @@ const sendNewQuestion = (text) => {
     .then((data) => {
       inputElement.classList.remove("error");
       inputElement.value = "";
-
       const listElement = document.querySelector("ul");
       listElement.append(convertQuestionToElement(data));
     })
@@ -113,7 +96,6 @@ const sendNewQuestion = (text) => {
     })
     .catch((err) => console.error(err));
 };
-
 window.onload = () => {
     fetch("http://localhost:3000/api/questions")
     .then((response) => (response.ok ? response.json() : Promise.reject()))
@@ -125,19 +107,17 @@ window.onload = () => {
     })
     .then(sendQueuedQueries)
     .catch(failAllGet);
-
   document.querySelector("input").addEventListener("keydown", (event) => {
     if (event.key === "Enter" && event.currentTarget.value) {
       sendNewQuestion(event.currentTarget.value);
     }
   });
 };
-
 */
 const QuestionButton = document.getElementById('QuestionButton');
 
 //function that puts question into the page
-function question(LabNum, LabQ){
+function question(LabQ){
 
   const QuestionsList = document.getElementById('LabQuestions');
   let LabQuestion = document.createElement('listItem');
@@ -147,11 +127,13 @@ function question(LabNum, LabQ){
 	
 }
 
+var urlParams = new URLSearchParams(window.location.search);
+
 //button function, checks user's input, adds to database, and adds to page
 function handleQuestionButtonClick(){
-	const LabNum = document.getElementById('labNum').value;
   const LabQ = document.getElementById('labQs').value;   
-  
+  let LabNum = getLabNum();
+
   let QuestionObject = {
   	question: LabQ,
     labNum: LabNum,
@@ -164,12 +146,27 @@ function handleQuestionButtonClick(){
     .then(question(LabNum, LabQ)); 
 }
 
+function getLabNum(){
+  var urlParams = new URLSearchParams(window.location.search);
+  let ParamString = urlParams.toString();
+
+  console.log(ParamString); //lab=num
+  let LabNum = ParamString.substring(4,6);//now has the  numbers
+  console.log(LabNum); 
+  return LabNum;
+}
+
 window.onload = () =>{ //this function will display all questions from a particular lab
-		fetch("http://localhost:3000/api/questions")
-  	.then((response) => (response.ok ? response.json() : Promise.reject()))
-    .then((data) => {
-        console.log(data);
-    })
+  let LabNum = getLabNum();
+
+  if(LabNum === "") return; //no fetching
+
+  //let fetchUrl = 
+  fetch("http://localhost:3000/api/questions") //FIX THIS LINE
+  .then((response) => (response.ok ? response.json() : Promise.reject()))
+  .then((data) => { //for loop that bitcha dn display the questions underneath
+      console.log(data);
+  })
 };  
 
 function main() {//eventhandler for the button
