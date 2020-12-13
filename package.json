@@ -21,5 +21,6 @@
   "bugs": {
     "url": "https://github.com/JamesGrom/QueueManager/issues"
   },
-  "homepage": "https://github.com/JamesGrom/QueueManager#readme"
+  "homepage": "https://github.com/JamesGrom/QueueManager#readme",
+  "devDependencies": {}
 }
