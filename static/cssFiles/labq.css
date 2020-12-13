@@ -4,22 +4,15 @@ body {
   font-family: "Slabo 27px";
 }
 
-main {
-  max-width: 80ch;
-  padding: 2rem;
-  margin: auto;
-}
-
-main img {
-  height: 100%;
-}
-
-main header {
+#ProjectTitle{
   display: flex;
-  height: 4rem;
-  align-content: center;
   justify-content: center;
-  margin-bottom: 2rem;;
+}
+
+#TopSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1,
@@ -34,6 +27,11 @@ h1 {
 
 ul {
   width: 100%;
+}
+
+header > nav > ul {
+  display: flex;
+  justify-content: space-around;
 }
 
 li {
