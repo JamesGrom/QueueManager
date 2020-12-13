@@ -49,27 +49,27 @@ const main = () => {
     
     //serve the user home page
     app.get('./home', (req,res)=>{
-        res.sendFile('./static/htmlFiles/home.html');
+        res.sendFile('./static/htmlFiles/home.html',{root: path.join(__dirname,'')});
     })
     
     //serve the create lab section page
     app.get('/create', (req,res)=>{
-        res.sendFile('./static/htmlFiles/createLab.html');
+        res.sendFile('./static/htmlFiles/createLab.html',{root: path.join(__dirname,'')});
     })
 
     //serve the search for  lab section page
     app.get('/search', (req,res)=>{
-        res.sendFile('./static/htmlFiles/searchLab.html');
+        res.sendFile('./static/htmlFiles/searchLab.html',{root: path.join(__dirname,'')});
     })
 
     //serve the join lab page
     app.get('/join', (req,res)=>{
-        res.sendFile('./static/htmlFiles/joinLab.html');
+        res.sendFile('./static/htmlFiles/joinLab.html',{root: path.join(__dirname,'')});
     })
     
     //serve the lab page
     app.get('/lab', (req,res)=>{
-        res.sendFile('./static/htmlFiles/lab.html');
+        res.sendFile('./static/htmlFiles/lab.html',{root: path.join(__dirname,'')});
     })
 
     app.get('/HelpfulResources',(req,res)=>{
@@ -81,6 +81,10 @@ const main = () => {
     app.get('/labq',(req,res)=>{
         res.sendFile('./static/htmlFiles/labq.html',{root: path.join(__dirname,'')})
         ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
+    })
+
+    app.get('/allq', (req,rest)=>{
+        res.sendFile("./static/htmlFiles/AllQuestions.html",{root: path.join(__dirname,'')})
     })
 
     
