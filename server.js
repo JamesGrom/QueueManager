@@ -83,6 +83,10 @@ const main = () => {
         ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
     })
 
+    app.get('/allq', (req,rest)=>{
+        res.sendFile("./static/htmlFiles/AllQuestions.html",{root: path.join(__dirname,'')})
+    })
+
     
     //get endpoint fot the resource links 
     //precondition, labName is the string that defines the name of the lab section
