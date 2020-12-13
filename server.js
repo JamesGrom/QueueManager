@@ -24,10 +24,40 @@ const main = () => {
         res.sendFile('./static/htmlFiles/index.html',{root: path.join(__dirname,'')})
     });
 
+    //serve the login page
+    app.get('/login', (req,res) => {
+        res.sendFile('./static/htmlFiles/login.html');
+    })
+
+    //serve the register page
+    app.get('/register',(req,res)=>{
+        res.sendFile('./static/htmlFiles/register.html');
+    })
+    //serve the create lab section page
+    app.get('/create', (req,res)=>{
+        res.sendFile('./static/htmlFiles/createLab.html');
+    })
+
+    //serve the search for  lab section page
+    app.get('/search', (req,res)=>{
+        res.sendFile('./static/htmlFiles/searchLab.html');
+    })
+
+    //serve the join lab page
+    app.get('/join', (req,res)=>{
+        res.sendFile('./static/htmlFiles/joinLab.html');
+    })
+    
+    //serve the lab page
+    app.get('/lab', (req,res)=>{
+        res.sendFile('./static/htmlFiles/lab.html');
+    })
+    
     app.get('/HelpfulResources',(req,res)=>{
         res.sendFile('./static/htmlFiles/HelpfulResources.html',{root: path.join(__dirname,'')})
         ///Users/jamesgrom/Desktop/FinalDebugged/QueueManager/static/htmlFiles/HelpfulResources.html
     })
+
 
     app.get('/labq',(req,res)=>{
         res.sendFile('./static/htmlFiles/labq.html',{root: path.join(__dirname,'')})
