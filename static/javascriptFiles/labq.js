@@ -135,15 +135,20 @@ var urlParams = new URLSearchParams(window.location.search);
 function handleQuestionButtonClicked(){
   const labQs = document.getElementById('labQs').value;   
   let LabNum = getLabNum();
-
+  let LabName = getLabName();
   let QuestionObject = {
-  	question: labQs,
+    question: LabQs,
+    labName: LabName,
     labNum: LabNum,
   }
   
-  fetch("/api/questions", {
-        method: "POST",
-        body: JSON.stringify(QuestionObject)
+  fetch(`/api/questions/${LabName}`, {
+    headers:{
+      'Accept': 'application/json',
+      'content-type': 'application/json'
+    },
+    method: "POST",
+    body: JSON.stringify(QuestionObject)
     })
     .then(question(labQs)); 
 }
@@ -156,6 +161,11 @@ function getLabNum(){
   let LabNum = ParamString.substring(4,6);//now has the  numbers
   console.log(LabNum); 
   return LabNum;
+}
+
+//temporary implementation
+function getLabName(){
+  return "coen161";
 }
 
 window.onload = () =>{ //this function will display all questions from a particular lab
