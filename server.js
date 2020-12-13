@@ -4,6 +4,18 @@ console.log("server.js started running");
 const express = require('express');
 const fs = require('fs/promises');
 const path = require('path');
+var admin = require("firebase-admin");
+var serviceAccount = require('./queuemanager-396ae-firebase-adminsdk-vh8bx-75f0c89244.json');
+//const { database } = require('firebase-admin');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+  
+});
+
+const db = admin.firestore();
+
+const tempdocRef = db.collection('testing');
+db.doc('tested/doc').set({here: "7"});
 // 
 //main function
 const main = () => {
@@ -77,9 +89,6 @@ const main = () => {
         console.log(`queueManager server started on http://localhost: ${port}`);
     });
     
- 
-    //test comment
-
 }
 
 main();
