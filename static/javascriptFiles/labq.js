@@ -147,6 +147,8 @@ function question(LabNum, LabQ){
 	
 }
 
+var urlParams = new URLSearchParams(window.location.search);
+
 //button function, checks user's input, adds to database, and adds to page
 function handleQuestionButtonClick(){
 	const LabNum = document.getElementById('labNum').value;
