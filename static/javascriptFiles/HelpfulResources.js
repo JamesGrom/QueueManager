@@ -57,7 +57,14 @@ function handleResourceButtonClicked(){ //either make a new Resource Link or pro
 }
 
 window.onload = () => { //go through any and all resource links already uploaded in the past, display them using addResourceLink
-    fetch("http://localhost:3000/api/resources")
+    let tempObj={
+        labName: "coen161",
+        labNum: "4"
+    }
+    fetch("http://localhost:3000/api/resources",{
+        method: "GET",
+        body: JSON.stringify(tempObj)
+    })
     .then((response) => (response.ok ? response.json() : Promise.reject()))
     .then((data) => {
         console.log(data);
